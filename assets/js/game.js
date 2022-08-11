@@ -91,9 +91,6 @@ var startGame = function () {
             //let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
             window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
-            //use debugger to pause script
-            //debugger;
-
             //pick new enemy to fight based on the index of the enemyNames array
             var pickedEnemyObj = enemyInfo[i];
 
@@ -147,23 +144,21 @@ var endGame = function () {
 var shop = function() {
     //ask player what they'd like to do
     var shopOptionPrompt = window.prompt(
-        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."
     );
 
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     //use switch to carry out action
     switch (shopOptionPrompt) {
-        case "REFILL":
-        case "refill":
+        case 1:
             playerInfo.refillHealth();
             break;
 
-        case "UPGRADE":
-        case "upgrade":
+        case 2:
             playerInfo.upgradeAttack();
             break;
 
-        case "LEAVE":
-        case "leave":
+        case 3:
             window.alert("Leaving the store.");
 
             //do nothing, so function will end
@@ -197,6 +192,7 @@ var getPlayerName = function() {
     console.log("Your robot's name is " + name);
     return name;
 };
+
 
 //Game Information / Variables
 
@@ -247,5 +243,8 @@ var enemyInfo = [
     }
 ];
 
+
+//use debugger to pause script
+debugger;
 //start the game when the page loads
 startGame();
